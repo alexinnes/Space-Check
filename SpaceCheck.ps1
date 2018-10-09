@@ -13,15 +13,15 @@
 function Get-DriveSpace {
 
 [CmdletBinding()]
-    param (
-        [Parameter(Mandatory=$false, Position=1)]
-            #Default Param is the local computer.
-            [string[]]$computer = $ENV:ComputerName,
+param (
+    [Parameter(Mandatory=$false, Position=1)]
+    #Default Param is the local computer.
+    [string[]]$computer = $ENV:ComputerName,
 
-            [Parameter(Mandatory=$false, Position=0)]
-            [string]$driveLetter = "C"
-    )
-    $outputObj = @()
+    [Parameter(Mandatory=$false, Position=0)]
+    [string]$driveLetter = "C"
+)
+$outputObj = @()
     $SpaceObj = @()
     $wmiError
     foreach($c in $computer){
