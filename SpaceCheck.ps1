@@ -26,7 +26,7 @@ $outputObj = @()
     $wmiError
     foreach($c in $computer){
         if(Test-Connection $c -Count 1 -Quiet){
-            $space = Get-WmiObject win32_Logicaldisk -ComputerName $c -filter "DeviceID='$driveLetter`:'" -ErrorAction SilentlyContinue
+            $space = Get-WmiObject win32_Logicaldisk -ComputerName $c -filter "DeviceID='$driveLetter`:'"
             $spaceObj = [ordered]@{
                 ComputerName = $c
                 DriveLetter = $driveLetter
@@ -48,3 +48,5 @@ $outputObj = @()
     }
     $outputObj
 }
+
+Get-DriveSpace
